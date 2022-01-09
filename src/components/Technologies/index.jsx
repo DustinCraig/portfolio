@@ -31,6 +31,5 @@ export default () => (
       <List title='Front-End' items={frontEndTechnologies} />
       <List title='Back-End' items={backEndTechnologies} />
     </div>
-    <Canvas></Canvas>
   </Section>
 )

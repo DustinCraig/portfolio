@@ -41,7 +41,9 @@ const projects = [
     title: 'Normal Map Example',
     visit: 'http://web.eecs.utk.edu/~dcraig14/2bN9gJ0sx3U/lab3/Midterm.html',
     description: 'Implementation of object normal mapping',
-    imageSource,
+    imageSource: '/images/normal.png',
+    id: 4,
+    tags: ['JavaScript', 'WebGL'],
   },
 ]
 
