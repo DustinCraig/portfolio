@@ -27,25 +27,20 @@ export default () => {
     <Box
       sx={{ position: "relative", p: 8, pt: 0, height: "100%", pr: 1, pl: 0 }}
     >
-      {isLarge && <FlexBox>{menuNode}</FlexBox>}
-      {!isLarge && (
-        <>
-          <Typography
-            sx={{
-              p: 5,
-              pb: 0,
-              pt: 0,
-              textDecoration: "underline",
-              textDecorationColor: `${ACCENT_COLOR}`,
-              color: "white",
-            }}
-            variant="h5"
-          >
-            Experience
-          </Typography>
-          <Experience />
-        </>
-      )}
+      <Typography
+        sx={{
+          p: 5,
+          pb: 0,
+          pt: 0,
+          textDecoration: "underline",
+          textDecorationColor: `${ACCENT_COLOR}`,
+          color: "white",
+        }}
+        variant="h5"
+      >
+        {selectedItem}
+      </Typography>
+      <FlexBox>{menuNode}</FlexBox>
     </Box>
   );
 };
