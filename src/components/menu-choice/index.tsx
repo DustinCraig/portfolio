@@ -1,16 +1,17 @@
-import React, { useState, useEffect, ReactNode } from "react";
-import { Box, useMediaQuery, Typography } from "@mui/material";
+import React, { useState, useEffect, useCallback, ReactNode } from "react";
+import { Box, Typography } from "@mui/material";
 import { MenuItem } from "../../types/menu-types";
 import { ACCENT_COLOR } from "../../theme";
-import FlexBox from "../flex-box";
 import Experience from "./experience";
+import useIsLarge from "../../hooks/useIsLarge";
+import Projects from "./projects";
 import useMenuContext from "../../hooks/use-menu-context";
 
 export default () => {
   const {
     state: { selectedItem },
   } = useMenuContext();
-  const isLarge = useMediaQuery((theme: any) => theme.breakpoints.up("lg"));
+  const isLarge = useIsLarge();
   const [menuNode, setMenuNode] = useState<ReactNode | undefined>(undefined);
 
   useEffect(() => {
@@ -23,24 +24,46 @@ export default () => {
     }
   }, [selectedItem]);
 
+  const getNodeFromMenuItem = (selectedItem: string) => {
+    switch (selectedItem) {
+      case MenuItem.EXPERIENCE: {
+        return <Experience />;
+      }
+      case MenuItem.PROJECTS: {
+        return <Projects />;
+      }
+      default: {
+        return <></>;
+      }
+    }
+  };
+
   return (
     <Box
-      sx={{ position: "relative", p: 8, pt: 0, height: "100%", pr: 1, pl: 0 }}
+      sx={{ position: "relative", p: 8, pt: 1, height: "100%", pr: 1, pl: 0 }}
     >
-      <Typography
-        sx={{
-          p: 5,
-          pb: 0,
-          pt: 0,
-          textDecoration: "underline",
-          textDecorationColor: `${ACCENT_COLOR}`,
-          color: "white",
-        }}
-        variant="h5"
-      >
-        {selectedItem}
-      </Typography>
-      <FlexBox>{menuNode}</FlexBox>
+      {Object.values(MenuItem)
+        .filter((item) => typeof item === "string")
+        .map((item) => (
+          <>
+            <Typography
+              sx={{
+                p: 5,
+                pb: 0,
+                pt: 0,
+                pl: isLarge ? 3 : 5,
+                pr: 0,
+                textDecoration: "underline",
+                textDecorationColor: `${ACCENT_COLOR}`,
+                color: "white",
+              }}
+              variant="h4"
+            >
+              {item}
+            </Typography>
+            <Box sx={{ p: 1, pt: 0 }}>{getNodeFromMenuItem(item)}</Box>
+          </>
+        ))}
     </Box>
   );
 };

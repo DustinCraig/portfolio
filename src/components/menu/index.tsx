@@ -1,11 +1,12 @@
 import React from "react";
-import { Stack, Box, useMediaQuery, Divider } from "@mui/material";
+import { Stack, Box, Divider } from "@mui/material";
 import FlexBox from "../flex-box";
 import Title from "./components/title";
 import Shortcuts from "./components/shortcuts";
+import useIsLarge from "../../hooks/useIsLarge";
 
 export default () => {
-  const isLarge = useMediaQuery((theme: any) => theme.breakpoints.up("lg"));
+  const isLarge = useIsLarge();
   return (
     <Box sx={{ height: "100%", position: isLarge ? "fixed" : "relative" }}>
       <FlexBox

@@ -10,7 +10,6 @@ import {
   Chip,
   Stack,
 } from "@mui/material";
-import CircleIcon from "@mui/icons-material/Circle";
 import type { Job } from "../../../../types/experience-types";
 
 type Props = {
@@ -19,7 +18,7 @@ type Props = {
 
 export default ({ job }: Props) => {
   return (
-    <Box sx={{ width: "100%", p: 1, pt: 0 }}>
+    <Box sx={{ width: "100%" }}>
       <CardContent sx={{ pt: 0 }}>
         <Typography color={"text.primary"} variant={"h5"}>
           {job.companyName}

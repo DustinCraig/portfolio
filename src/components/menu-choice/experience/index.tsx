@@ -1,9 +1,7 @@
 import React from "react";
 import useExperienceContext from "../../../hooks/use-experience-context";
-import { Box } from "@mui/material";
+import { Box, List, ListItem } from "@mui/material";
 import JobModule from "./job";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
 
 export default () => {
   const {
@@ -11,7 +9,7 @@ export default () => {
   } = useExperienceContext();
 
   return (
-    <Box sx={{ display: "flex", height: "100%", width: "100%" }}>
+    <Box>
       <List sx={{ width: "100%" }}>
         {jobs.map((job) => (
           <ListItem sx={{ width: "100%" }}>
