@@ -4,8 +4,8 @@ export enum MenuActionType {
 
 export enum MenuItem {
   EXPERIENCE = "Experience",
-  PROJECTS = "Projects",
   ABOUT = "About",
+  PROJECTS = "Projects",
 }
 
 export type MenuAction = {

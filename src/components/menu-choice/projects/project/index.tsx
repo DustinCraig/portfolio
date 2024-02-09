@@ -1,5 +1,6 @@
 import React from "react";
 import { Typography, Box } from "@mui/material";
+import BorderBox from "../../../border-box";
 import type { Project } from "../../../../types/project-types";
 
 type Props = {
@@ -8,12 +9,9 @@ type Props = {
 
 export default ({ project }: Props) => {
   return (
-    <Box
+    <BorderBox
       sx={{
         height: 200,
-        border: `1px solid rgba(255,255,255,0.1)`,
-        borderRadius: 0.5,
-        p: 3,
       }}
     >
       <Typography color={"text.primary"} gutterBottom variant={"h5"}>
@@ -22,6 +20,6 @@ export default ({ project }: Props) => {
       <Typography color={"text.secondary"} variant="body2">
         {project.description}
       </Typography>
-    </Box>
+    </BorderBox>
   );
 };

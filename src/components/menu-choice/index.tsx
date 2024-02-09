@@ -3,6 +3,7 @@ import { Box, Typography } from "@mui/material";
 import { MenuItem } from "../../types/menu-types";
 import { ACCENT_COLOR } from "../../theme";
 import Experience from "./experience";
+import About from "./about";
 import useIsLarge from "../../hooks/useIsLarge";
 import Projects from "./projects";
 import useMenuContext from "../../hooks/use-menu-context";
@@ -31,6 +32,9 @@ export default () => {
       }
       case MenuItem.PROJECTS: {
         return <Projects />;
+      }
+      case MenuItem.ABOUT: {
+        return <About />;
       }
       default: {
         return <></>;
